@@ -17,6 +17,16 @@ def clear_alert(request, alert_id):
     theAlert.is_okay = True
     theAlert.save()
     
-    return return render_to_response('thanks.html',{
+    return render_to_response('thanks.html',{
                'the_vlun':theAlert.regarding,
+           }, context_instance=RequestContext(request))
+           
+           
+def map_view(request):
+    theVolunteers = Volunteer.objects.all()
+    theVulnerables = Vulnerable.objects.all()
+    
+    return render_to_response('map.html',{
+               'theVolunteers':theVolunteers,
+               'theVulnerables':theVulnerables,
            }, context_instance=RequestContext(request))

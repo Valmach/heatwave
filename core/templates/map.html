@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Map | Heatwaves{% endblock %}
+
+{% block nav %}
+		<li class="active"><a href="/">Maps!</a></li>
+{% endblock %}
+  	          
+  	          
+{% block ui %}
+<li><!--Debug: Map Center <span id="map-long"></span><span id="map-lat"></span>--></li>
+  	 	
+{% endblock %}
+
+
+{% block content %}<div id="map-canvas"/>{% endblock %}
+
+{% block modals %}    
+    
+    
+{% endblock %}
+    
+{% block pageScripts %}
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGC7QIAGP_Qp4onH5-ce6pqvTkX_stPDI&sensor=true">
+    </script>
+<script type="text/javascript">
+    function initialize() {
+            var mapOptions = {
+              center: new google.maps.LatLng(50.7271666667, -3.4751666667),
+              zoom: 8,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map-canvas"),
+                mapOptions);
+            
+            {% for vol in theVolunteers %}    
+            var vol_marker_{{vol.id}} = new google.maps.Marker({
+                  position: new google.maps.LatLng({{vol.geo_lat}}, {{vol.geo_long}}),
+                  map: map,
+                  title:"Volunteer {{ vol.name }}"
+              });
+              
+            {% endfor %}
+            
+            {% for vun in theVulnerables %}    
+            var vun_marker_{{vun.id}} = new google.maps.Marker({
+                  position: new google.maps.LatLng({{vun.geo_lat}}, {{vun.geo_long}}),
+                  map: map,
+                  title:"Vulnerable {{ vun.name }}"
+              });
+              
+            {% endfor %}
+          }
+        
+          google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+{% endblock %}

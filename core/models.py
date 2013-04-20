@@ -28,7 +28,7 @@ class Vulnerable(models.Model):
 class Alert(models.Model):
     to = models.ForeignKey(Volunteer)
     regarding = models.ForeignKey(Vulnerable)
-    sent = models.DateTimeField(auto_now_add= T rue)
+    sent = models.DateTimeField(auto_now_add= True)
     is_okay = models.BooleanField(default = False)
     
     def __unicode__(self):

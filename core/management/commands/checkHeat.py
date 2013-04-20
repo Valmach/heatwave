@@ -12,10 +12,10 @@ class Command(BaseCommand):
         for vun in theVulnerables:
             details = {
                 "sensors":["TEMP"],
-                "startLng":1,
-                "endLng":1,
-                "startLat":10,
-                "endLat":10,
+                "startLng":float(vun.geo_long)-0.5,
+                "endLng":float(vun.geo_long)+0.5,
+                "startLat":float(vun.geo_lat)-0.5,
+                "endLat":float(vun.geo_lat)+0.5,
                 "mode":"real"
             }
             the_options = {
@@ -23,5 +23,12 @@ class Command(BaseCommand):
             }
             theData = requests.get('http://www.smartcities.switchsystems.co.uk/api/reading/data', params=the_options)
             
-            print theData.url
-            print theData.text
+            print theData.json()
+            #print theData.text
+            
+            #loadedData = json.loads(theData.json())
+            
+            #print loadedData
+            
+            for sensor in theData.json()["readings"]:
+                print sensor["sensorValue"]

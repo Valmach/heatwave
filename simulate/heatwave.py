@@ -14,11 +14,13 @@ the_data = {
 
 send = requests.get('http://www.smartcities.switchsystems.co.uk/api/reading/send/' + json.dumps(data))
 
-print send.text
+print "29c at 901"
 
 print 'sleeping.'
 time.sleep(10)
 print 'sleeping..'
+time.sleep(10)
+print 'sleeping...'
 time.sleep(10)
 print 'sleeping...'
 
@@ -30,7 +32,7 @@ data = {
 
 send = requests.get('http://www.smartcities.switchsystems.co.uk/api/reading/send/' + json.dumps(data))
 
-print send.text
+print "29c at 902"
 
 data = {
     "deviceId": "904",
@@ -40,11 +42,13 @@ data = {
 
 send = requests.get('http://www.smartcities.switchsystems.co.uk/api/reading/send/' + json.dumps(data))
 
-print send.text
+print "29c at 904"
 
 print 'sleeping.'
 time.sleep(10)
 print 'sleeping..'
+time.sleep(10)
+print 'sleeping...'
 time.sleep(10)
 print 'sleeping...'
 
@@ -56,7 +60,7 @@ data = {
 
 send = requests.get('http://www.smartcities.switchsystems.co.uk/api/reading/send/' + json.dumps(data))
 
-print send.text
+print "29c at 903"
 
 data = {
     "deviceId": "905",
@@ -66,4 +70,4 @@ data = {
 
 send = requests.get('http://www.smartcities.switchsystems.co.uk/api/reading/send/' + json.dumps(data))
 
-print send.text
+print "29c at 905"

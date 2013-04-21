@@ -32,4 +32,4 @@ class Alert(models.Model):
     is_okay = models.BooleanField(default = False)
     
     def __unicode__(self):
-            return "To " + self.to.name + " RE: " + self.regrading.name
+            return "To " + self.to.name + " RE: " + self.regarding.name

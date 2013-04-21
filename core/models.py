@@ -5,7 +5,7 @@ import datetime
 
 class Volunteer(models.Model):
     name = models.CharField(max_length = 100)
-    number = models.CharField(max_length = 20)
+    number = models.CharField(max_length = 30)
     geo_lat = models.DecimalField('latitude', max_digits=13, decimal_places=10, blank=True, null=True)
     geo_long = models.DecimalField('longitude', max_digits=13, decimal_places=10, blank=True, null=True)
     
@@ -17,7 +17,7 @@ class Volunteer(models.Model):
 class Vulnerable(models.Model):
     name = models.CharField(max_length = 100)
     address = models.CharField(max_length = 100)
-    number = models.CharField(max_length = 20)
+    number = models.CharField(max_length = 30)
     geo_lat = models.DecimalField('latitude', max_digits=13, decimal_places=10, blank=True, null=True)
     geo_long = models.DecimalField('longitude', max_digits=13, decimal_places=10, blank=True, null=True)
     
